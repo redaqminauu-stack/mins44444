@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mixiky | أجمد براندات بأسعار مغرية – الدقي</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Changa:wght@700;800&family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --bg:#0C0C0C; --acid:#D8F542; --white:#F5F5F2; --soft:rgba(245,245,242,.7); --wa:#25D366;
+}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Almarai',sans-serif}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--white);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.display{font-family:'Changa',sans-serif;font-weight:800}
+
+/* نويز */
+.noise{position:fixed;inset:0;z-index:90;pointer-events:none;opacity:.28;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+  background-size:200px 200px}
+
+/* جلاس */
+.glass{background:rgba(12,12,12,.5);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  box-shadow:inset 0 1px 1px rgba(255,255,255,.1);position:relative;overflow:hidden;border-radius:14px}
+.glass::before{content:'';position:absolute;inset:0;border-radius:inherit;padding:1.4px;
+  background:linear-gradient(180deg,rgba(255,255,255,.3),rgba(255,255,255,.08) 30%,transparent 50%,rgba(255,255,255,.08) 75%,rgba(255,255,255,.3));
+  -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+
+/* أزرار 3D ستريت وير */
+.btn{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;font-size:15px;
+  padding:14px 30px;border-radius:12px;transition:transform .1s,box-shadow .1s}
+.btn-acid{background:var(--acid);color:#111;box-shadow:0 5px 0 #8FA32B}
+.btn-acid:active{transform:translateY(5px);box-shadow:0 0 0 #8FA32B}
+.btn-wa{background:var(--wa);color:#fff;box-shadow:0 5px 0 #17803D}
+.btn-wa:active{transform:translateY(5px);box-shadow:0 0 0 #17803D}
+.btn-ghost{color:#fff;border:2px solid rgba(255,255,255,.35);box-shadow:0 5px 0 rgba(255,255,255,.15)}
+.btn-ghost:active{transform:translateY(5px);box-shadow:0 0 0 transparent}
+
+/* نافبار */
+nav{position:sticky;top:0;z-index:80;display:flex;align-items:center;justify-content:space-between;gap:10px;
+  padding:14px clamp(16px,4vw,48px)}
+.brand{font-family:'Changa',sans-serif;font-weight:800;font-size:24px;color:#fff;padding:6px 18px;letter-spacing:.04em}
+.brand span{color:var(--acid)}
+.nav-links{display:flex;gap:26px;padding:12px 26px;font-size:14px}
+.nav-links a{color:var(--soft);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--acid)}
+@media(max-width:760px){.nav-links{display:none}}
+
+/* هيرو */
+.hero{position:relative;min-height:94vh;display:flex;align-items:flex-end;
+  padding:0 clamp(16px,5vw,64px) clamp(50px,8vh,84px)}
+.hero-bg{position:absolute;inset:0;overflow:hidden}
+.hero-bg img{width:100%;height:100%;object-fit:cover;filter:grayscale(.85) contrast(1.1);
+  transform:scale(1.08);animation:zoomOut 12s ease-out forwards}
+@keyframes zoomOut{to{transform:scale(1)}}
+.hero-bg::after{content:'';position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(12,12,12,.97) 8%,rgba(12,12,12,.35) 50%,rgba(12,12,12,.55))}
+.hero-content{position:relative;z-index:2;max-width:880px}
+.badge{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--acid);
+  padding:9px 18px;margin-bottom:20px}
+h1.letters{direction:ltr;text-align:right;font-family:'Changa',sans-serif;font-weight:800;color:#fff;
+  line-height:.95;font-size:clamp(3.2rem,13vw,8.5rem);letter-spacing:.01em;margin-bottom:12px}
+h1.letters span{display:inline-block;opacity:0;transform:translateY(40px) rotate(4deg);transition:opacity .5s,transform .5s cubic-bezier(.34,1.56,.64,1)}
+h1.letters span.in{opacity:1;transform:none}
+h1.letters .x{color:var(--acid)}
+.hero-line{font-size:clamp(1.3rem,3.8vw,2.3rem);font-weight:800;margin-bottom:16px}
+.hero-line .w{display:inline-block;opacity:0;transform:translateY(20px);transition:opacity .6s,transform .6s}
+.hero-line .w.in{opacity:1;transform:none}
+.hero-line mark{background:var(--acid);color:#111;padding:0 10px;border-radius:6px}
+.hero-p{color:var(--soft);font-size:clamp(.95rem,1.6vw,1.1rem);max-width:540px;line-height:1.9;margin-bottom:26px}
+.cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:36px}
+.stats{display:flex;flex-wrap:wrap;gap:clamp(24px,5vw,60px)}
+.stat b{display:block;font-family:'Changa',sans-serif;font-weight:800;font-size:clamp(1.7rem,4vw,2.7rem);color:#fff}
+.stat b i{color:var(--acid);font-style:normal}
+.stat small{color:var(--soft);font-size:11px;letter-spacing:.12em}
+
+/* ماركي */
+.marquee{background:var(--acid);color:#111;overflow:hidden;white-space:nowrap;padding:12px 0;
+  font-family:'Changa',sans-serif;font-weight:800;font-size:clamp(1rem,2.3vw,1.5rem);transform:rotate(-1deg);margin:-8px 0}
+.marquee-inner{display:inline-block;animation:slide 20s linear infinite}
+@keyframes slide{from{transform:translateX(0)}to{transform:translateX(50%)}}
+
+/* ظهور */
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+.reveal.visible{opacity:1;transform:none}
+
+/* كاروسيل الأقسام */
+.car-sec{position:relative;min-height:100vh;overflow:hidden;display:flex;flex-direction:column;
+  justify-content:flex-end;transition:background-color .65s cubic-bezier(.4,0,.2,1);padding-bottom:46px}
+.ghost{position:absolute;top:9%;right:0;left:0;text-align:center;font-family:'Changa',sans-serif;font-weight:800;
+  color:rgba(255,255,255,.9);font-size:clamp(95px,25vw,330px);line-height:1;pointer-events:none;user-select:none}
+.car-stage{position:absolute;inset:0}
+.car-item{position:absolute;aspect-ratio:.72/1;border-radius:18px;overflow:hidden;
+  box-shadow:0 30px 80px rgba(0,0,0,.5);transition:all .65s cubic-bezier(.4,0,.2,1);will-change:transform,filter,opacity}
+.car-item img{width:100%;height:100%;object-fit:cover}
+.car-item[data-role="center"]{left:50%;transform:translateX(-50%);height:60%;bottom:18%;z-index:20;filter:none;opacity:1}
+.car-item[data-role="left"]{left:21%;transform:translateX(-50%) scale(.9);height:33%;bottom:27%;z-index:10;filter:blur(2px);opacity:.85}
+.car-item[data-role="right"]{left:79%;transform:translateX(-50%) scale(.9);height:33%;bottom:27%;z-index:10;filter:blur(2px);opacity:.85}
+.car-item[data-role="back"]{left:50%;transform:translateX(-50%) scale(.8);height:25%;bottom:31%;z-index:5;filter:blur(4px);opacity:.9}
+.car-ui{position:relative;z-index:30;display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;
+  gap:20px;padding:0 clamp(16px,5vw,64px)}
+.car-info h3{font-family:'Changa',sans-serif;font-weight:800;font-size:clamp(1.5rem,3.5vw,2.4rem);color:#fff;margin-bottom:6px}
+.car-info p{color:rgba(255,255,255,.88);font-size:14px;max-width:360px;line-height:1.8;margin-bottom:16px}
+.car-btns{display:flex;gap:12px}
+.car-btn{width:56px;height:56px;border-radius:50%;border:2px solid #fff;background:transparent;color:#fff;
+  font-size:22px;cursor:pointer;transition:transform .15s,background .15s}
+.car-btn:hover{transform:scale(1.08);background:rgba(255,255,255,.15)}
+.car-cta{font-family:'Changa',sans-serif;font-weight:800;font-size:clamp(1.2rem,3vw,2rem);color:#fff;
+  text-decoration:none;display:flex;align-items:center;gap:10px}
+@media(max-width:640px){
+  .car-item[data-role="center"]{height:44%;bottom:30%}
+  .car-item[data-role="left"]{left:14%;height:19%;bottom:40%}
+  .car-item[data-role="right"]{left:86%;height:19%;bottom:40%}
+  .car-item[data-role="back"]{height:15%;bottom:42%}
+}
+
+/* المعرض المتناثر (برومت 1) */
+.gallery{background:var(--bg);padding:clamp(70px,12vh,120px) clamp(16px,4vw,48px)}
+.gal-head{text-align:center;margin-bottom:50px}
+.gal-head h2{font-family:'Changa',sans-serif;font-weight:800;font-size:clamp(1.8rem,5vw,3.2rem);color:#fff}
+.gal-head h2 span{color:var(--acid)}
+.gal-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;max-width:1100px;margin:0 auto}
+@media(min-width:640px){.gal-grid{grid-template-columns:repeat(3,1fr)}}
+.g-card{aspect-ratio:2/3;border-radius:14px;overflow:hidden;transform:scale(0);will-change:transform}
+.g-card:nth-child(odd){transform-origin:right bottom}
+.g-card:nth-child(even){transform-origin:left bottom}
+.g-card img{width:100%;height:100%;object-fit:cover;transition:filter .3s}
+.g-card:hover img{filter:brightness(1.15)}
+.g-card.empty{visibility:hidden}
+
+/* ريفيوهات */
+.story{background:#0F0F0F;padding:clamp(70px,12vh,130px) clamp(16px,5vw,64px);text-align:center}
+.label{font-size:12px;letter-spacing:.3em;color:var(--acid);font-weight:800;margin-bottom:22px;display:block}
+.story h2{font-family:'Changa',sans-serif;font-weight:800;font-size:clamp(1.7rem,5vw,3.2rem);line-height:1.3;
+  max-width:800px;margin:0 auto 56px;color:#fff}
+.reviews{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;max-width:1050px;margin:0 auto}
+.rev{padding:30px 26px;text-align:right;background:#161616}
+.rev .stars{color:var(--acid);letter-spacing:3px;margin-bottom:14px;font-size:15px}
+.rev p{color:var(--soft);font-size:14.5px;line-height:1.9;margin-bottom:18px}
+.rev b{font-size:13px;color:#fff}
+.rev small{display:block;color:rgba(245,245,242,.4);font-size:11px;margin-top:4px}
+
+/* زيارة */
+.visit{padding:clamp(70px,12vh,120px) clamp(16px,5vw,64px);text-align:center}
+.visit-card{max-width:740px;margin:0 auto;padding:clamp(30px,6vw,60px)}
+.visit h2{font-family:'Changa',sans-serif;font-weight:800;font-size:clamp(1.6rem,4.5vw,2.6rem);color:#fff;margin-bottom:14px}
+.visit p{color:var(--soft);line-height:2;font-size:15px;margin-bottom:6px}
+.visit .open{color:var(--acid);font-weight:800}
+.visit .tags{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:18px 0 8px}
+.visit .tag{font-size:12px;font-weight:800;padding:8px 16px;border-radius:999px;
+  background:rgba(216,245,66,.12);color:var(--acid)}
+.visit .cta-row{justify-content:center;margin-top:26px;margin-bottom:0}
+
+footer{padding:26px;text-align:center;color:rgba(245,245,242,.35);font-size:12px;letter-spacing:.08em}
+
+/* واتساب عائم */
+.wa-float{position:fixed;bottom:22px;left:22px;z-index:95;width:60px;height:60px;border-radius:50%;
+  background:var(--wa);display:flex;align-items:center;justify-content:center;text-decoration:none;
+  box-shadow:0 8px 24px rgba(37,211,102,.45);animation:pulse 2s infinite}
+.wa-float svg{width:30px;height:30px;fill:#fff}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.55)}70%{box-shadow:0 0 0 18px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:.01ms!important}
+  .g-card{transform:scale(1)!important}}
+</style>
+</head>
+<body>
+<div class="noise"></div>
+
+<nav>
+  <div class="brand glass">MI<span>X</span>IKY</div>
+  <div class="nav-links glass">
+    <a href="#cats">الأقسام</a><a href="#looks">الجديد</a><a href="#story">كلام الناس</a><a href="#visit">مكاننا</a>
+  </div>
+  <a class="btn btn-acid" style="font-size:14px;padding:11px 22px" href="https://wa.me/201002727414?text=%D8%B9%D8%A7%D9%88%D8%B2%20%D8%A3%D8%B4%D9%88%D9%81%20%D8%A7%D9%84%D8%AC%D8%AF%D9%8A%D8%AF%20%F0%9F%94%A5">كلمنا</a>
+</nav>
+
+<!-- الهيرو -->
+<section class="hero">
+  <div class="hero-bg"><img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1920&q=80" alt="Mixiky متجر ملابس" /></div>
+  <div class="hero-content">
+    <span class="badge glass reveal">⭐ 4.4 على جوجل — "مصداقية وحسن تعامل"</span>
+    <h1 class="letters" id="brandTitle">MIXIKY</h1>
+    <div class="hero-line" id="heroLine">أجمد براندات… بسعر <mark>مغري</mark></div>
+    <p class="hero-p reveal">ستايلات شبابي وكبار وأطفال في مكان واحد في قلب الدقي. براندات بجد، خامات محترمة، وأسعار هتخليك تاخد أكتر من قطعة. ومفتوحين لحد <b style="color:var(--acid)">1 بليل</b> — اتفصّل في أي وقت 🌙</p>
+    <div class="cta-row reveal">
+      <a class="btn btn-wa" href="https://wa.me/201002727414?text=%D8%B9%D8%A7%D9%88%D8%B2%20%D8%A3%D8%B4%D9%88%D9%81%20%D8%A7%D9%84%D8%AC%D8%AF%D9%8A%D8%AF%20%F0%9F%94%A5">ابعتولي الجديد واتساب</a>
+      <a class="btn btn-ghost" href="#cats">شوف الأقسام ↓</a>
+    </div>
+    <div class="stats reveal">
+      <div class="stat"><b><span class="count" data-to="4.4" data-dec="1">0</span> <i>⭐</i></b><small>تقييم جوجل</small></div>
+      <div class="stat"><b><i><span class="count" data-to="36">0</span></i> ريفيو</b><small>من زباين حقيقيين</small></div>
+      <div class="stat"><b>لحد <i>1</i> بليل</b><small>مفتوحين يومياً</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- ماركي مايل -->
+<div class="marquee"><div class="marquee-inner" id="marquee">
+  شبابي 🔥 رجالي 👔 أطفال 🧒 دينيم 👖 براندات أصلية ✅ أسعار مغرية 💸 مفتوحين لحد 1 بليل 🌙 &nbsp;
+</div></div>
+
+<!-- كاروسيل الأقسام -->
+<section class="car-sec" id="cats">
+  <div class="ghost">ستايل</div>
+  <div class="car-stage">
+    <div class="car-item"><img src="https://images.unsplash.com/photo-1503341504253-dff4815485f1?auto=format&fit=crop&w=900&q=80" alt="شبابي"/></div>
+    <div class="car-item"><img src="https://images.unsplash.com/photo-1489987707025-afc232f7bdaf?auto=format&fit=crop&w=900&q=80" alt="رجالي"/></div>
+    <div class="car-item"><img src="https://images.unsplash.com/photo-1503919545889-aef636e10ad4?auto=format&fit=crop&w=900&q=80" alt="أطفال"/></div>
+    <div class="car-item"><img src="https://images.unsplash.com/photo-1516762689617-e1cffcef479d?auto=format&fit=crop&w=900&q=80" alt="دينيم"/></div>
+  </div>
+  <div class="car-ui">
+    <div class="car-info">
+      <h3 id="carTitle">شبابي 🔥</h3>
+      <p id="carDesc">تيشيرتات وهوديز وستايلات الشارع اللي بتدور عليها — كولكشن متجدد باستمرار.</p>
+      <div class="car-btns">
+        <button class="car-btn" id="prevBtn" aria-label="السابق">‹</button>
+        <button class="car-btn" id="nextBtn" aria-label="التالي">›</button>
+      </div>
+    </div>
+    <a class="car-cta" href="https://wa.me/201002727414?text=%D8%B9%D8%A7%D9%88%D8%B2%20%D8%A3%D8%B4%D9%88%D9%81%20%D8%A7%D9%84%D9%82%D8%B3%D9%85%20%D8%AF%D9%87">اسأل عن القسم ده ←</a>
+  </div>
+</section>
+
+<!-- المعرض المتناثر -->
+<section class="gallery" id="looks">
+  <div class="gal-head reveal"><h2>الجديد <span>وصل</span> 👀</h2></div>
+  <div class="gal-grid" id="galGrid">
+    <div class="g-card"><img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=800&q=80" alt="لوك 1"/></div>
+    <div class="g-card empty"></div>
+    <div class="g-card"><img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80" alt="لوك 2"/></div>
+    <div class="g-card empty"></div>
+    <div class="g-card"><img src="https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=800&q=80" alt="لوك 3"/></div>
+    <div class="g-card empty"></div>
+    <div class="g-card"><img src="https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?auto=format&fit=crop&w=800&q=80" alt="لوك 4"/></div>
+    <div class="g-card"><img src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?auto=format&fit=crop&w=800&q=80" alt="لوك 5"/></div>
+    <div class="g-card"><img src="https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?auto=format&fit=crop&w=800&q=80" alt="لوك 6"/></div>
+  </div>
+</section>
+
+<!-- كلام الناس -->
+<section class="story" id="story">
+  <span class="label reveal">كلام الناس مش كلامنا</span>
+  <h2 class="reveal">المصداقية عندنا قبل البيع</h2>
+  <div class="reviews">
+    <div class="rev glass reveal"><div class="stars">★★★★★</div><p>«ممتاز جداً في الملابس الشبابي والكبار والأطفال»</p><b>MOURAD ALfar</b><small>مرشد محلي · 195 مراجعة · جوجل ماب</small></div>
+    <div class="rev glass reveal"><div class="stars">★★★★★</div><p>«بصراحة مصداقية وحسن تعامل وربنا يبارك»</p><b>Mohamed Abd El Aziz</b><small>مراجعة من جوجل ماب</small></div>
+    <div class="rev glass reveal"><div class="stars">★★★★★</div><p>«أجمد ملابس براند بسعر مغري»</p><b>Ahmed Nabil</b><small>مراجعة من جوجل ماب</small></div>
+  </div>
+</section>
+
+<!-- مكاننا -->
+<section class="visit" id="visit">
+  <div class="visit-card glass reveal">
+    <h2>📍 مستنيينك في الدقي</h2>
+    <p>37 شارع عبدالله النحاس — الدقي، الجيزة</p>
+    <p class="open">مفتوح يومياً حتى 1 بعد منتصف الليل 🌙</p>
+    <p>📞 010 02727414</p>
+    <div class="tags">
+      <span class="tag">👕 شبابي</span><span class="tag">👔 رجالي</span><span class="tag">🧒 أطفال</span><span class="tag">✅ براندات أصلية</span>
+    </div>
+    <div class="cta-row">
+      <a class="btn btn-wa" href="https://wa.me/201002727414">كلمنا واتساب</a>
+      <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&query=Mixiky+%D8%B4%D8%A7%D8%B1%D8%B9+%D8%B9%D8%A8%D8%AF%D8%A7%D9%84%D9%84%D9%87+%D8%A7%D9%84%D9%86%D8%AD%D8%A7%D8%B3+%D8%A7%D9%84%D8%AF%D9%82%D9%8A" target="_blank" rel="noopener">الاتجاهات 🗺️</a>
+    </div>
+  </div>
+</section>
+
+<footer>MIXIKY © 2026 — الدقي · شبابي، رجالي، أطفال</footer>
+
+<a class="wa-float" href="https://wa.me/201002727414" aria-label="واتساب">
+  <svg viewBox="0 0 32 32"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.1.6 4.2 1.6 6L4 29l8.2-1.5c1.7.9 3.6 1.4 5.8 1.4 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 22c-1.9 0-3.7-.5-5.2-1.4l-.4-.2-4.9.9.9-4.7-.2-.4C5.4 17.7 5 16.4 5 15 5 9 9.9 4 16 4s11 5 11 11-4.9 10-11 10zm5.5-7.5c-.3-.2-1.8-.9-2-1s-.5-.2-.7.2-.8 1-.9 1.2-.3.2-.6.1c-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1s0-.5.1-.6l.5-.5c.2-.2.2-.3.3-.5s0-.4 0-.5c-.1-.2-.7-1.7-1-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4s-1 1-1 2.5 1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4s.3-1.3.2-1.4c-.1-.2-.3-.2-.6-.4z"/></svg>
+</a>
+
+<script>
+// اسم البراند حرف حرف بنطة ستريت وير
+const title=document.getElementById('brandTitle');
+const txt=title.textContent;title.textContent='';
+[...txt].forEach((ch,i)=>{
+  const s=document.createElement('span');s.textContent=ch;
+  if(ch==='X')s.className='x';
+  s.style.transitionDelay=(200+i*80)+'ms';title.appendChild(s);
+});
+requestAnimationFrame(()=>requestAnimationFrame(()=>title.querySelectorAll('span').forEach(s=>s.classList.add('in'))));
+
+// السطر العربي كلمة كلمة
+const line=document.getElementById('heroLine');
+const nodes=[...line.childNodes];line.innerHTML='';
+nodes.forEach(n=>{
+  if(n.nodeType===3){n.textContent.split(' ').filter(Boolean).forEach(w=>{
+    const s=document.createElement('span');s.className='w';s.textContent=w;line.appendChild(s);line.append(' ');});}
+  else{const s=document.createElement('span');s.className='w';s.appendChild(n);line.appendChild(s);line.append(' ');}
+});
+line.querySelectorAll('.w').forEach((w,i)=>{w.style.transitionDelay=(900+i*100)+'ms';
+  requestAnimationFrame(()=>requestAnimationFrame(()=>w.classList.add('in')))});
+
+// الماركي
+const mq=document.getElementById('marquee');mq.innerHTML=mq.innerHTML.repeat(6);
+
+// الظهور بالسكرول
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}}),{threshold:.15});
+document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%4)*.12+'s';io.observe(el)});
+
+// عداد الأرقام
+const cio=new IntersectionObserver(es=>es.forEach(e=>{
+  if(!e.isIntersecting)return;cio.unobserve(e.target);
+  const el=e.target,to=parseFloat(el.dataset.to),dec=+(el.dataset.dec||0),t0=performance.now();
+  (function tick(t){const p=Math.min((t-t0)/1400,1),v=to*(1-Math.pow(1-p,3));
+    el.textContent=v.toFixed(dec);if(p<1)requestAnimationFrame(tick)})(t0);
+}),{threshold:.6});
+document.querySelectorAll('.count').forEach(el=>cio.observe(el));
+
+// كاروسيل الأقسام
+const DATA=[
+  {t:'شبابي 🔥',d:'تيشيرتات وهوديز وستايلات الشارع اللي بتدور عليها — كولكشن متجدد باستمرار.',bg:'#22333B'},
+  {t:'رجالي 👔',d:'قمصان وبناطيل كلاسيك وسمارت كاجوال — شياكة من غير مبالغة في السعر.',bg:'#5E503F'},
+  {t:'أطفال 🧒',d:'ستايلات لولادك بخامات مريحة تستحمل اللعب — والأسعار على قدك.',bg:'#7A4E3E'},
+  {t:'دينيم وجواكت 👖',d:'جينز وجواكت دينيم بقصّات مظبوطة — القطعة اللي بتكمّل أي لوك.',bg:'#2F4A5E'}
+];
+const sec=document.querySelector('.car-sec'),items=[...document.querySelectorAll('.car-item')],
+      tEl=document.getElementById('carTitle'),dEl=document.getElementById('carDesc');
+let active=0,lock=false;
+function render(){
+  const roles={};roles[active]='center';roles[(active+3)%4]='left';roles[(active+1)%4]='right';roles[(active+2)%4]='back';
+  items.forEach((it,i)=>it.dataset.role=roles[i]);
+  sec.style.backgroundColor=DATA[active].bg;tEl.textContent=DATA[active].t;dEl.textContent=DATA[active].d;
+}
+function nav2(d){if(lock)return;lock=true;active=(active+(d==='next'?1:3))%4;render();setTimeout(()=>lock=false,650)}
+document.getElementById('nextBtn').onclick=()=>nav2('next');
+document.getElementById('prevBtn').onclick=()=>nav2('prev');
+setInterval(()=>{if(!document.hidden)nav2('next')},4200);
+DATA.forEach((_,i)=>{const im=new Image();im.src=items[i].querySelector('img').src});
+render();
+
+// المعرض المتناثر: سكيل بالسكرول (تكنيك برومت 1)
+const cards=[...document.querySelectorAll('.g-card:not(.empty)')];
+function galTick(){
+  const vh=innerHeight;
+  cards.forEach(c=>{
+    const r=c.getBoundingClientRect();
+    if(r.bottom<=0||r.top>=vh){c.style.transform='scale(0)';return}
+    const enter=Math.min(1,(vh-r.top)/(vh*.6)),exit=Math.min(1,r.bottom/(vh*.4));
+    c.style.transform=`scale(${Math.max(0,Math.min(enter,exit))})`;
+  });
+  requestAnimationFrame(galTick);
+}
+requestAnimationFrame(galTick);
+</script>
+</body>
+</html>
